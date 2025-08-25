@@ -1,90 +1,103 @@
-
-        body {
-            background: linear-gradient(120deg, #2980b9 0%, #6dd5fa 100%);
-            font-family: 'Montserrat', Arial, sans-serif;
+body {
+            background: linear-gradient(120deg, #6a11cb 0%, #2575fc 100%);
+            font-family: 'Segoe UI', 'Montserrat', Arial, sans-serif;
             min-height: 100vh;
             margin: 0;
         }
         .login-container {
-            width: 370px;
-            margin: 90px auto;
-            padding: 35px 30px 30px 30px;
-            background: rgba(255,255,255,0.97);
-            border-radius: 16px;
-            box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255,255,255,0.18);
+            width: 390px;
+            margin: 80px auto;
+            padding: 40px 32px 32px 32px;
+            background: rgba(255,255,255,0.98);
+            border-radius: 22px;
+            box-shadow: 0 10px 40px 0 rgba(80,80,180,0.13);
+            border: 1.5px solid rgba(120,120,255,0.13);
         }
         h2 {
             text-align: center;
-            margin-bottom: 28px;
-            color: #2980b9;
-            font-weight: 600;
-            letter-spacing: 1px;
+            margin-bottom: 30px;
+            color: #6a11cb;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            font-size: 2rem;
         }
         label {
             display: block;
-            margin-bottom: 7px;
-            color: #444;
-            font-size: 15px;
-            font-weight: 500;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 16px;
+            font-weight: 600;
         }
         .input-group {
-            margin-bottom: 20px;
+            margin-bottom: 22px;
+            text-align: left; /* Ajouté pour forcer l'alignement à gauche */
+        }
+        label,
+        input[type="text"],
+        input[type="password"] {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: left; /* Ajouté pour forcer l'alignement à gauche */
         }
         input[type="text"], input[type="password"] {
             width: 100%;
-            padding: 12px 10px;
-            border: 1px solid #b2bec3;
-            border-radius: 6px;
-            font-size: 15px;
-            background: #f7fafd;
-            transition: border 0.2s;
+            padding: 15px 12px;
+            border: 1.5px solid #c3c8e8;
+            border-radius: 10px;
+            font-size: 16px;
+            background: #f4f7fb;
+            transition: border 0.2s, box-shadow 0.2s;
             outline: none;
+            box-shadow: 0 1px 3px rgba(106,17,203,0.03);
         }
         input[type="text"]:focus, input[type="password"]:focus {
-            border: 1.5px solid #2980b9;
+            border: 2px solid #6a11cb;
             background: #fff;
+            box-shadow: 0 2px 8px rgba(106,17,203,0.08);
         }
         button {
             width: 100%;
-            padding: 12px;
-            background: linear-gradient(90deg, #2980b9 0%, #6dd5fa 100%);
+            padding: 14px;
+            background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
             color: #fff;
             border: none;
-            border-radius: 6px;
-            font-size: 17px;
-            font-weight: 600;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 700;
             cursor: pointer;
-            box-shadow: 0 2px 8px rgba(41,128,185,0.08);
-            transition: background 0.2s, transform 0.1s;
+            box-shadow: 0 3px 12px rgba(106,17,203,0.10);
+            transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+            letter-spacing: 0.5px;
         }
         button:hover {
-            background: linear-gradient(90deg, #2574a9 0%, #48c6ef 100%);
-            transform: translateY(-2px) scale(1.02);
+            background: linear-gradient(90deg, #5f10b7 0%, #1e63d0 100%);
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 6px 18px rgba(106,17,203,0.18);
         }
         .register-link {
             display: block;
             text-align: center;
-            margin-top: 22px;
-            color: #2980b9;
+            margin-top: 26px;
+            color: #6a11cb;
             text-decoration: none;
-            font-size: 15px;
-            font-weight: 500;
+            font-size: 16px;
+            font-weight: 600;
             transition: color 0.2s;
         }
         .register-link:hover {
-            color: #0056b3;
+            color: #2575fc;
             text-decoration: underline;
         }
         .logo {
             display: flex;
             justify-content: center;
-            margin-bottom: 18px;
+            margin-bottom: 22px;
         }
         .logo img {
-            width: 60px;
-            height: 60px;
+            width: 68px;
+            height: 68px;
             border-radius: 50%;
-            box-shadow: 0 2px 8px rgba(41,128,185,0.12);
+            box-shadow: 0 3px 12px rgba(106,17,203,0.13);
+            border: 2px solid #6a11cb;
         }
