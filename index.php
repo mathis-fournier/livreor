@@ -7,6 +7,8 @@ if (!isset($_COOKIE['isConnected']))
     exit();
 }
 
+$commentaire = $_POST['commentaire'];
+var_dump($commentaire);
 ?>
 
 <!DOCTYPE html>
@@ -41,8 +43,14 @@ if (!isset($_COOKIE['isConnected']))
     <!-- commentaires -->
     <h1>Commentaires</h1>
     <form action="" method="post">
-        <input type="text" name="text" id="" placeholder="votre commentaire ici">
+        <input type="text" name="commentaire" id="commentaire" placeholder="votre commentaire ici">
+        <button type="submit" name="connexion">Envoyer</button>
     </form>
+    <?php
+    
+    ?>
+
+    
 </body>
 </html>
 <?php
