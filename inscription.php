@@ -15,9 +15,10 @@ if (isset($_POST['login'])&& isset($_POST['password'])){
         if ($check->num_rows >0){
         echo 'utlisateur existe déja';
     }
-    else{
+    else
+        {
          $stmt = $conn->prepare("INSERT INTO utilisateurs (login,password) values (?, ?)");
-         $stmt->bind_param('ss',$login, $id);
+         $stmt->bind_param('ss',$login, $password);
         if ($stmt->execute() === true){
              header("Location: connexion.php");
              exit();

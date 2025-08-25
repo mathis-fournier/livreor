@@ -2,6 +2,7 @@
 ob_start();
 
 $conn = new mysqli("localhost", "root", "", "livreor",3306);
+
 if (isset($_POST['commentaire']))
 {
     $commentaire = $_POST['commentaire'];
@@ -11,7 +12,7 @@ if (isset($_POST['commentaire']))
     $stmt->execute();
 }
 
-    $stmt = $conn->prepare("SELECT * FROM commentaires ORDER BY date DESC");
+    $stmt = $conn->prepare("SELECT c.date, c.commentaire, u.login FROM commentaires c JOIN utilisateurs u ON c.id_utilisateur = u.id ORDER by date DESC;");
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -63,16 +64,16 @@ if (isset($_POST['envoyer']))
         <button style="width: 25%" type="submit" name="envoyer">Envoyer</button>
     </form>
         <table>
-            <th>Commentaire</th>
-            <th style="width: 15%;">Date</th>
-            <th style="width: 10%;">Id</th>
+            <th style="width: 65%;">Commentaire</th>
+            <th style="width: 25%;">Date</th>
+            <th style="width: 10%;">Auteur</th>
         <?php
         while ($row = $result->fetch_assoc()) 
         {
             echo "<tr>";
             echo "<td>" . htmlspecialchars($row['commentaire']) . "</td>";
             echo "<td>" . htmlspecialchars($row['date']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['id_utilisateur']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['login']) . "</td>";
             echo "</tr>";
         }
         ?>

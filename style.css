@@ -173,7 +173,7 @@ header nav {
 }
 
 table {
-    width: 100%;
+    width: 75%;
     table-layout: fixed;
     border-collapse: collapse;
     margin: 20px auto;
