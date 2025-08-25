@@ -17,7 +17,7 @@ if (isset($_POST['login'])&& isset($_POST['password'])){
     }
     else{
          $stmt = $conn->prepare("INSERT INTO utilisateurs (login,password) values (?, ?)");
-         $stmt->bind_param('ss',$login, $password);
+         $stmt->bind_param('ss',$login, $id);
         if ($stmt->execute() === true){
              header("Location: connexion.php");
              exit();
@@ -39,7 +39,7 @@ if (isset($_POST['login'])&& isset($_POST['password'])){
     <meta charset="UTF-8">
     <title>Connexion</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
     <div class="login-container">

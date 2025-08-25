@@ -1,14 +1,30 @@
 <?php
 ob_start();
 
+$conn = new mysqli("localhost", "root", "", "livreor",3306);
+if (isset($_POST['commentaire']))
+{
+    $commentaire = $_POST['commentaire'];
+    $id_utilisateur = $_COOKIE['isConnected'];
+    $stmt = $conn->prepare("INSERT INTO commentaires (commentaire,id_utilisateur) values (?, ?)");
+    $stmt->bind_param('ss',$commentaire, $id_utilisateur);
+    $stmt->execute();
+}
+
+    $stmt = $conn->prepare("SELECT * FROM commentaires ORDER BY date DESC");
+    $stmt->execute();
+    $result = $stmt->get_result();
+
 if (!isset($_COOKIE['isConnected']))
 {
     header("Location: connexion.php");
     exit();
 }
 
-$commentaire = $_POST['commentaire'];
-var_dump($commentaire);
+if (isset($_POST['envoyer']))
+{
+    
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +33,7 @@ var_dump($commentaire);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -43,14 +59,29 @@ var_dump($commentaire);
     <!-- commentaires -->
     <h1>Commentaires</h1>
     <form action="" method="post">
-        <input type="text" name="commentaire" id="commentaire" placeholder="votre commentaire ici">
-        <button type="submit" name="connexion">Envoyer</button>
+        <input style="width: 35%" type="text" name="commentaire" id="commentaire" placeholder="votre commentaire ici">
+        <button style="width: 25%" type="submit" name="envoyer">Envoyer</button>
     </form>
-    <?php
-    
-    ?>
+        <table>
+            <th>Commentaire</th>
+            <th style="width: 15%;">Date</th>
+            <th style="width: 10%;">Id</th>
+        <?php
+        while ($row = $result->fetch_assoc()) 
+        {
+            echo "<tr>";
+            echo "<td>" . htmlspecialchars($row['commentaire']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['date']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['id_utilisateur']) . "</td>";
+            echo "</tr>";
+        }
+        ?>
+        </table>
+        <?php
+        $stmt->close();
+        $conn->close();
+        ?>
 
-    
 </body>
 </html>
 <?php

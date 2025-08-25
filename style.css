@@ -1,3 +1,16 @@
+th, td
+{
+    width: 90%;
+    
+    max-width: 200px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border: 1px solid black;
+
+}
+
+
+
 
 body 
 {
@@ -125,14 +138,14 @@ header nav {
 .dropdown-content {
     display: none;
     position: absolute;
-    right: 0; /* Ajoute cette ligne pour coller le menu à droite du bouton */
+    right: 0; 
     top: 100%;
     background: #fff;
     min-width: 160px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    z-index: 10; /* Augmente le z-index si besoin */
+    z-index: 10;
     border-radius: 6px;
-    overflow: visible; /* Change overflow pour éviter les scrollbars */
+    overflow: visible; 
 }
 .dropdown-content a {
     color: #333;
@@ -157,5 +170,23 @@ header nav {
     box-shadow: 0 1px 4px rgba(0,0,0,0.08);
     margin: 0;
     padding: 0;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+th, td
+{
+    max-width: 200px;
+    padding: 8px;
+    border: 1px solid black;
+    white-space: normal;        
+    overflow-wrap: break-word; 
+    word-wrap: break-word;     
+    overflow-wrap: anywhere;   
 }
 
