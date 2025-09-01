@@ -9,9 +9,10 @@ if (isset($_POST['commentaire']))
     $id_utilisateur = $_COOKIE['isConnected'];
     $stmt = $conn->prepare("INSERT INTO commentaires (commentaire,id_utilisateur) values (?, ?)");
     $stmt->bind_param('ss',$commentaire, $id_utilisateur);
-    $stmt->execute();
+    $stmt->execute();    
+    header("Location: index.php");
+    exit();
 }
-
     $stmt = $conn->prepare("SELECT c.date, c.commentaire, u.login FROM commentaires c JOIN utilisateurs u ON c.id_utilisateur = u.id ORDER by date DESC;");
     $stmt->execute();
     $result = $stmt->get_result();
@@ -20,11 +21,6 @@ if (!isset($_COOKIE['isConnected']))
 {
     header("Location: connexion.php");
     exit();
-}
-
-if (isset($_POST['envoyer']))
-{
-    
 }
 ?>
 
@@ -86,4 +82,5 @@ if (isset($_POST['envoyer']))
 </body>
 </html>
 <?php
+
 ob_end_flush();
